@@ -32,7 +32,6 @@ def load_trained_model():
     hf_model_filename = "best_model.hdf5"
     
     try:
-        # Download from Hugging Face Hub only
         model_path = hf_hub_download(
             repo_id=hf_repo_id,
             filename=hf_model_filename,
@@ -79,20 +78,12 @@ def load_and_preprocess_image(pil_img, target_size=IMAGE_SIZE):
 
 # UI
 st.title("🫁 Lung Cancer Detection")
-st.markdown("Upload a chest X-ray image. Model is downloaded once from Hugging Face Hub.")
+st.markdown("Upload a chest X-ray image. Model is downloaded once.")
 st.sidebar.header("About")
-st.sidebar.info("""
-**Educational Demo** — Not for clinical use.
-
-Model hosted on Hugging Face Hub:
-**sampujit/LungsCancerDetection**
-
-**Note:** This app only loads the model from Hugging Face Hub. No local model files are used.
-""")
 
 # Load model (display status)
 model_state = st.empty()
-model_state.text("Loading model from Hugging Face Hub...")
+model_state.text("Loading model...")
 
 try:
     model = load_trained_model()
