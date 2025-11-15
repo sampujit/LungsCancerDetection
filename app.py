@@ -79,7 +79,7 @@ def load_and_preprocess_image(pil_img, target_size=IMAGE_SIZE):
 # UI
 st.title("🫁 Lung Cancer Detection")
 st.markdown("Upload a chest X-ray image. Model is downloaded once.")
-st.sidebar.header("About")
+
 
 # Load model (display status)
 model_state = st.empty()
